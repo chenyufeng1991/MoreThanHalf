@@ -11,22 +11,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void MoreThanHalf(int *arr, int start, int mid ,int end);
+void MoreThanHalf(int *arr, int start, int end);
 int Partition(int *arr, int start, int end);
 void CheckNumber(int *arr, int length, int num);
 
 int main(int argc, const char * argv[])
 {
     //    1 1 4 4 4 7 7 7 7
-    int array[] = {4,7,1,7,4,1,7,4,7};
+    int array[] = {4,7,4,7,4,4,7,4,7};
 
-    MoreThanHalf(array, 0, 4 ,8);
+    MoreThanHalf(array, 0 ,8);
 
     return 0;
 }
 
-void MoreThanHalf(int *arr, int start, int mid ,int end)
+void MoreThanHalf(int *arr, int start, int end)
 {
+    int mid = (start + end) / 2;
     int index = Partition(arr, start, end);
 
     while (index != mid)
@@ -42,7 +43,8 @@ void MoreThanHalf(int *arr, int start, int mid ,int end)
         }
     }
 
-    printf("%d\n",arr[index]);
+    printf("数组中间的数字为：%d\n",arr[index]);
+    CheckNumber(arr, 9, arr[index]);
     return;
 }
 
