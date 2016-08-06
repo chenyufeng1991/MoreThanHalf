@@ -18,13 +18,14 @@ void CheckNumber(int *arr, int length, int num);
 int main(int argc, const char * argv[])
 {
     //    1 1 4 4 4 7 7 7 7
-    int array[] = {4,7,4,7,4,4,7,4,7};
+    int array[] = {3,1,3,7,3,3,7,3,7};
 
     MoreThanHalf(array, 0 ,8);
 
     return 0;
 }
 
+// 核心代码
 void MoreThanHalf(int *arr, int start, int end)
 {
     int mid = (start + end) / 2;
@@ -43,9 +44,13 @@ void MoreThanHalf(int *arr, int start, int end)
         }
     }
 
-    printf("数组中间的数字为：%d\n",arr[index]);
-    CheckNumber(arr, 9, arr[index]);
-    return;
+    if (index == mid)
+    {
+        printf("数组中间的数字为：%d\n",arr[index]);
+        CheckNumber(arr, 9, arr[index]);
+        return;
+    }
+
 }
 
 int Partition(int *arr, int start, int end)
